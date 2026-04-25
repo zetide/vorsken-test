@@ -3,6 +3,10 @@ name: Vorsken Policy Gate Test
 on:
   pull_request:
 
+permissions:
+  pull-requests: write
+  contents: read
+
 jobs:
   policy-gate:
     runs-on: ubuntu-latest
