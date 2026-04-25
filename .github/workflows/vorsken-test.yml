@@ -1,0 +1,13 @@
+name: Vorsken Policy Gate Test
+
+on:
+  pull_request:
+
+jobs:
+  policy-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: zetide/vorsken@v0.2.0
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
