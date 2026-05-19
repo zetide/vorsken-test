@@ -1,10 +1,17 @@
 import subprocess
-from flask import Flask, request
+import os
 
-app = Flask(__name__)
+# Command injection - OWASP API8
+def run_cmd(user_input):
+    os.system(user_input)
+    subprocess.call(user_input, shell=True)
+    subprocess.Popen(user_input, shell=True)
 
-@app.route('/run')
-def run_command():
-    cmd = request.args.get('cmd')
-    result = subprocess.run(cmd, shell=True, capture_output=True)
-    return result.stdout
+# Hardcoded secret - OWASP API8
+password = "hardcoded_secret_123"
+api_key = "sk-1234567890abcdef"
+
+# SQL injection pattern
+def get_user(user_id):
+    query = "SELECT * FROM users WHERE id = " + user_id
+    return query
