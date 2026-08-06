@@ -1,0 +1,18 @@
+import requests
+
+# Hardcoded API key (intentional vulnerability for testing)
+API_KEY = "sk-1234567890abcdef"
+
+def get_data():
+    response = requests.get(
+        "https://api.example.com/data",
+        headers={"Authorization": f"Bearer {API_KEY}"}
+    )
+    return response.json()
+
+# trigger re-run
+# trigger v0.2.2
+# trigger v0.2.3
+# trigger v0.2.4
+# trigger v0.2.4 p
+# trigger v0.2.5
